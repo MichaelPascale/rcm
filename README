@@ -1,0 +1,16 @@
+╔═══════════════════════════════════════════════════════════╗
+║                 REDCap Metadata Utilities                 ║
+║ R Package for Extracting Information from REDCap Metadata ║
+║                                                           ║
+║                       Version 0.0.1                       ║
+║            Copyright (c) 2022, Michael Pascale            ║
+║                       MIT Licensed                        ║
+╚═══════════════════════════════════════════════════════════╝
+
+The purpose of this package is to provide an interface to REDCap datasets with
+integrated metadata from the data dictionary.
+
+Install from GitHub with `devtools`.
+
+> # install.packages('devtools')
+> devtools::install_github('MichaelPascale/rcm')
