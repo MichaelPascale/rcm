@@ -1,0 +1,32 @@
+Variable / Field Name,Form Name,Section Header,Field Type,Field Label,"Choices, Calculations, OR Slider Labels",Field Note,Text Validation Type OR Show Slider Number,Text Validation Min,Text Validation Max,Identifier?,Branching Logic (Show field only if...),Required Field?,Custom Alignment,Question Number (surveys only),Matrix Group Name,Matrix Ranking?,Field Annotation
+test_date_dmy,test_data_types,,text,Text with Date Validation,,,date_dmy,,,,,,,,,, @TODAY-SERVER
+test_date_mdy,test_data_types,,text,Text with Date Validation,,,date_mdy,,,,,,,,,, @TODAY
+test_date_ymd,test_data_types,,text,Text with Date Validation,,,date_ymd,,,,,,,,,, @TODAY-UTC
+test_date_dmyhm,test_data_types,,text,Text with Datetime Validation,,,datetime_dmy,,,,,,,,,,
+test_date_mdyhm,test_data_types,,text,Text with Datetime Validation,,,datetime_mdy,,,,,,,,,,
+test_date_ymdhm,test_data_types,,text,Text with Datetime Validation,,,datetime_ymd,,,,,,,,,,
+test_date_dmyhms,test_data_types,,text,Text with Datetime Validation Including Seconds,,,datetime_seconds_dmy,,,,,,,,,, @NOW-SERVER
+test_date_mdyhms,test_data_types,,text,Text with Datetime Validation Including Seconds,,,datetime_seconds_mdy,,,,,,,,,, @NOW-UTC
+test_date_ymdhms,test_data_types,,text,Text with Datetime Validation Including Seconds,,,datetime_seconds_ymd,,,,,,,,,, @NOW
+test_time_hm,test_data_types,,text,Text with Time Validation,,,time,,,,,,,,,, @NOW-UTC
+test_time_ms,test_data_types,,text,Text with Time Validation,,,time_mm_ss,,,,,,,,,,
+test_text,test_data_types,,text,Text Box,,,,,,y,,y,,,,,
+test_integer,test_data_types,,text,Text with Integer Validation,,Enter a number from 1 to 10.,integer,0,10,,,,RH,,,,
+test_number,test_data_types,,text,Text with Number Validation,,,number,,,,,,RH,,,,
+test_number_4digit,test_data_types,,text,Text with 4 digit number validation,,,number_4dp,,,,,,RH,,,,
+test_mrn,test_data_types,,text,Text with MRN Validation,,,mrn_10d,,,,,,RH,,,,
+test_time_mmss,test_data_types,,text,Text with Time MM:SS,,,time_mm_ss,,,,,,RH,,,,
+test_notes,test_data_types,,notes,Notes Box,,,,,,,,,,,,,
+test_calculation,test_data_types,,calc,Calculation,1 +1,,,,,,,,,,,,
+test_dropdown,test_data_types,,dropdown,Dropdown,"1, A | 2, B | 3, C | 4, D | 5, E",,,,,,,,,,,,
+test_dropdown_2,test_data_types,,dropdown,Dropdown (Trying to break with pipe).,"1, A|8,g | 2, B | d | 3, C | 4, D | 5, E|",,,,,,,,,,,,
+test_radio,test_data_types,,radio,Radio Buttons,"-1, None | 0, B | 1, C | 2, D | 3, E | NA, None-numerically coded",,,,,,,,,,,,
+test_checkbox,test_data_types,,checkbox,Checkbox,"NA, Non-numerically coded | 1, A | 2, B | 3, C | 4, D | 5, E",,,,,,,,,,,,
+test_matrix_1,test_data_types,Matrix of Fields,radio,Matrix Field 1,"1, A | 2, B | 3, C | 4, D",,,,,,,,,,all_matrix_group,,
+test_matrix_2,test_data_types,,radio,Matrix Field 2,"1, A | 2, B | 3, C | 4, D",,,,,,,,,,all_matrix_group,,
+test_yesno,test_data_types,,yesno,Yes/No,,,,,,,,,,,,,
+test_truefalse,test_data_types,,truefalse,True/False,,,,,,,,,,,,,
+test_signature,test_data_types,,file,Signature,,,signature,,,,,,,,,,
+test_file,test_data_types,,file,File Upload,,,,,,,,,,,,,
+test_vas,test_data_types,Section,slider,VAS/Slider,Not At All (0% Chance) | Maybe (50:50) | Certain (100%) Chance,,number,,,,,,RH,,,,
+test_descriptive,test_data_types,,descriptive,Descriptive Text,,,,,,,,,,,,,
