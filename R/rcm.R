@@ -22,16 +22,16 @@ rcm <- function (df_data, df_metadata) {
     'redcap_repeat_instance'
   ))
 
-
   int_reachable <- 0
   for (chr_name in names(df_data)) {
     chr_lookup <- chr_name
 
-    if (!chr_lookup %in% df_metadata[, 1]) {
+    if (!chr_lookup %in% df_metadata[, 1] ) {
       chr_lookup <- gsub('___[_a-zA-Z0-9]*$', '', chr_name)
-
       if (!chr_lookup %in% df_metadata[, 1])
         next
+
+      # TODO: Handle "_complete" fields.
     }
 
     attr(df_data[[chr_name]], 'rcm-field') <- df_metadata[df_metadata[,1] == chr_lookup, 1]
@@ -56,6 +56,7 @@ rcm <- function (df_data, df_metadata) {
   structure(
     df_data,
     `rcm-metadata`=structure(df_metadata, class=prepend(class(df_metadata), 'rcm_metadata')),
+    `rcm-instruments`=df_metadata[,2] |> unique() |> sort(),
     `rcm-reachable`=int_reachable,
     class=prepend(class(df_data), 'rcm_data')
   )

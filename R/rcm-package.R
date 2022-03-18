@@ -9,6 +9,7 @@
 #' @import cli
 #' @import dplyr
 #' @import purrr
+#' @import tibble
 #' @import stringr
 #' @import checkmate
 #'

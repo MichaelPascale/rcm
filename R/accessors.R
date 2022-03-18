@@ -83,6 +83,10 @@ rcm_field.rcm_field <- function(v) attr(v, 'rcm-field')
 #' @export
 rcm_type.rcm_field <- function(v) attr(v, 'rcm-type')
 
+#' @rdname rcm_form
+#' @export
+rcm_form.rcm_field <- function(v) attr(v, 'rcm-form')
+
 #' @rdname rcm_validation
 #' @export
 rcm_validation.rcm_field <- function(v) attr(v, 'rcm-validation')
@@ -122,6 +126,10 @@ rcm_field.rcm_data <- function(df_data, chr_field) attr(df_data[[chr_field]], 'r
 #' @rdname rcm_type
 #' @export
 rcm_type.rcm_data <- function(df_data, chr_field) attr(df_data[[chr_field]], 'rcm-type')
+
+#' @rdname rcm_form
+#' @export
+rcm_form.rcm_data <- function(df_data, chr_field) attr(df_data[[chr_field]], 'rcm-form')
 
 #' @rdname rcm_validation
 #' @export

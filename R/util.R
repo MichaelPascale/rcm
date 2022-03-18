@@ -14,8 +14,7 @@
 #' @param chr_html HTML code to be stripped.
 #'
 #' @return Character string for display with `cli::cli_text()`.
-#' @export
-html_to_cli <- function (chr_html) {
+.html_to_cli <- function (chr_html) {
   chr_html |>
     str_remove_all('<span(\\s.*)?>(.*?)</span>') |>
     str_remove_all('<div(\\s.*)?>(.*?)</div>') |>
