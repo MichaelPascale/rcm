@@ -11,6 +11,7 @@
 #' @import purrr
 #' @import tibble
 #' @import stringr
+#' @import lubridate
 #' @import checkmate
 #'
 NULL

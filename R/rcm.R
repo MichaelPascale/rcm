@@ -2,7 +2,7 @@
 # Definition of S3 Class for Combining REDCap Data and Metadata
 #
 # Maintained by Michael Pascale <mppascale@mgh.harvard.edu>
-# Last modified: 2022-03-15
+# Last modified: 2022-03-18
 
 #' REDCap Database with Metadata
 #'
@@ -49,6 +49,7 @@ rcm <- function (df_data, df_metadata) {
     attr(df_data[[chr_name]], 'rcm-annotation') <- df_metadata[df_metadata[,1] == chr_lookup, 18]
 
     class(df_data[[chr_name]]) <- prepend(class(df_data[[chr_name]]), 'rcm_field')
+    class(df_data[[chr_name]]) <- prepend(class(df_data[[chr_name]]), str_glue('rcm_field_{df_metadata[df_metadata[,1] == chr_lookup, 4]}'))
     int_reachable = int_reachable + 1
   }
 
@@ -57,6 +58,7 @@ rcm <- function (df_data, df_metadata) {
     df_data,
     `rcm-metadata`=structure(df_metadata, class=prepend(class(df_metadata), 'rcm_metadata')),
     `rcm-instruments`=df_metadata[,2] |> unique() |> sort(),
+    `rcm-field-types`=df_metadata[,4] |> unique() |> sort(),
     `rcm-reachable`=int_reachable,
     class=prepend(class(df_data), 'rcm_data')
   )

@@ -1,8 +1,8 @@
 # accessors.R
-# Extract REDCap Metadata from Attributes of rcm_* Objects.
+# Extract REDCap Metadata from Attributes of rcm_field Objects.
 #
 # Maintained by Michael Pascale <mppascale@mgh.harvard.edu>
-# Last modified: 2022-03-15
+# Last modified: 2022-03-18
 
 #### Extract REDCap Metadata ####
 
@@ -150,31 +150,3 @@ rcm_min.rcm_data <- function(df_data, chr_field) attr(df_data[[chr_field]], 'rcm
 #' @rdname rcm_max
 #' @export
 rcm_max.rcm_data <- function(df_data, chr_field) attr(df_data[[chr_field]], 'rcm-max')
-
-
-#### Extract rcm_* Properties ####
-
-##### S3 Method Definitions #####
-
-#' Extract Metadata from an rcm_data Object
-#' @export
-rcm_metadata <-
-  function (...) UseMethod('rcm_metadata')
-
-#' @rdname rcm_metadata
-#' @export
-rcm_metadata.rcm_data <-
-   function(df_data) attr(df_data, 'rcm-metadata')
-
-#' Extract the List of REDCap Instruments from the Data Dictionary
-#' @export
-rcm_list_forms <-
-  function (...) UseMethod('rcm_list_forms')
-
-#' @rdname rcm_list_forms
-#' @export
-rcm_list_forms.rcm_data <- function(df_data) rcm_list_forms(rcm_metadata(df_data))
-
-#' @rdname rcm_list_forms
-#' @export
-rcm_list_forms.rcm_metadata <- function(df_metadata) df_metadata[,2] |> unique()
