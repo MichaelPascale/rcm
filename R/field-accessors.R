@@ -73,6 +73,11 @@ rcm_required <-
 rcm_annotation <-
   function (...) UseMethod('rcm_annotation')
 
+#' Extract the REDCap events at which the field's form is present
+#' @export
+rcm_events <-
+  function (...) UseMethod('rcm_events')
+
 ##### rcm_field #####
 
 #' @rdname rcm_field
@@ -117,6 +122,10 @@ rcm_min.rcm_field <- function(v) attr(v, 'rcm-min')
 #' @export
 rcm_max.rcm_field <- function(v) attr(v, 'rcm-max')
 
+#' @rdname rcm_events
+#' @export
+rcm_events.rcm_field <- function(v) attr(v, 'rcm-events')
+
 ##### rcm_data #####
 
 #' @rdname rcm_field
@@ -150,3 +159,7 @@ rcm_min.rcm_data <- function(df_data, chr_field) attr(df_data[[chr_field]], 'rcm
 #' @rdname rcm_max
 #' @export
 rcm_max.rcm_data <- function(df_data, chr_field) attr(df_data[[chr_field]], 'rcm-max')
+
+#' @rdname rcm_events
+#' @export
+rcm_events.rcm_data <- function(df_data, chr_field) attr(df_data[[chr_field]], 'rcm-events')

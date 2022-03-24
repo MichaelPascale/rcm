@@ -5,7 +5,19 @@
 \alias{rcm}
 \title{REDCap Metadata Utilities}
 \usage{
-rcm(df_data, df_metadata)
+rcm(df_data, df_metadata, df_form_event_map = NULL)
+}
+\arguments{
+\item{df_data}{Dataframe comprising the downloaded REDCap data. Download
+from REDCap in CSV format with raw values through the Data Export Tool or the
+export records API method.}
+
+\item{df_metadata}{Dataframe comprising the REDCap metadata as downloaded
+from the Data Dictionary page or through the metadata API method.}
+
+\item{df_form_event_map}{Optional. Dataframe comprising the REDCap
+instrument-event mappings as downloaded from the Project Settings page or the
+formEventMapping API method.}
 }
 \description{
 Attach metadata to a REDCap data.frame to extract information from the

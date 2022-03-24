@@ -54,6 +54,9 @@ print.rcm_field <- function(v_field) {
 
   cli_par()
   cli_text('Instrument: {rcm_form(v_field)}')
+  if (!is.null(rcm_events(v_field))) {
+    cli_text('Events: {rcm_events(v_field)}')
+  }
   cli_text('Field Annotations: {rcm_annotation(v_field)}')
   cli_end()
 

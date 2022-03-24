@@ -8,9 +8,29 @@
 ╚═══════════════════════════════════════════════════════════╝
 
 The purpose of this package is to provide an interface to REDCap datasets with
-integrated metadata from the data dictionary.
+integrated metadata from the data dictionary. The product is an S3 class which
+wraps a dataframe containing REDCap data. Metadata for individual fields is
+added to the attributes of each column. A print method and accessors for each
+metadata property are provided.
+
+These tools make it easier to work with REDCap data in R without continiously
+referencing the REDCap codebook, data dictionary or settings page.
 
 Install from GitHub with `devtools`.
 
 > # install.packages('devtools')
 > devtools::install_github('MichaelPascale/rcm')
+
+Instantiate an `rcm_data` object with information downloaded from REDCap.
+
+> library(rcm)
+> df_data <- read.csv('data/data-example.csv')
+> df_meta <- read.csv('data/dictionary-example.csv')
+> df_redcap <- rcm(df_data, df_meta)
+> df_redcap
+
+Optionally, include information regarding the REDCap events for each form.
+
+> df_forms <- read.csv('data/form-event-mappings-example.csv')
+> df_redcap <- rcm(df_data, df_meta, df_forms)
+> df_redcap
