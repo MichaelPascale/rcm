@@ -3,11 +3,14 @@
 \name{rcm_events_by_form}
 \alias{rcm_events_by_form}
 \alias{rcm_events_by_form.rcm_form_event_map}
+\alias{rcm_events_by_form.rcm_data}
 \title{List REDCap events given an instrument name.}
 \usage{
 rcm_events_by_form(...)
 
 \method{rcm_events_by_form}{rcm_form_event_map}(df_form_event_map, chr_form)
+
+\method{rcm_events_by_form}{rcm_data}(df_data, chr_form)
 }
 \description{
 List REDCap events given an instrument name.

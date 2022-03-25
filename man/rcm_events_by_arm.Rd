@@ -3,11 +3,14 @@
 \name{rcm_events_by_arm}
 \alias{rcm_events_by_arm}
 \alias{rcm_events_by_arm.rcm_form_event_map}
+\alias{rcm_events_by_arm.rcm_data}
 \title{List REDCap events given an arm.}
 \usage{
 rcm_events_by_arm(...)
 
 \method{rcm_events_by_arm}{rcm_form_event_map}(df_form_event_map, int_arm)
+
+\method{rcm_events_by_arm}{rcm_data}(df_data, int_arm)
 }
 \description{
 List REDCap events given an arm.

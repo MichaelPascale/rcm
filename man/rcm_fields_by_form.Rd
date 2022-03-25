@@ -3,11 +3,14 @@
 \name{rcm_fields_by_form}
 \alias{rcm_fields_by_form}
 \alias{rcm_fields_by_form.rcm_metadata}
+\alias{rcm_fields_by_form.rcm_data}
 \title{List REDCap fields given an instrument name.}
 \usage{
 rcm_fields_by_form(...)
 
 \method{rcm_fields_by_form}{rcm_metadata}(df_metadata, chr_form)
+
+\method{rcm_fields_by_form}{rcm_data}(df_data, chr_form)
 }
 \description{
 List REDCap fields given an instrument name.
