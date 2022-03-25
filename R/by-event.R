@@ -11,7 +11,7 @@ rcm_arms_by_event <- function (...) UseMethod('rcm_arms_by_event')
 #' @rdname rcm_arms_by_event
 #' @export
 rcm_arms_by_event.rcm_form_event_map <- function(df_form_event_map, chr_event) {
-  df_form_event_map[df_form_event_map[, 2] == chr_event, 1]
+  df_form_event_map[df_form_event_map[, 2] %in% chr_event, 1]
 }
 
 #' @rdname rcm_arms_by_event
@@ -27,7 +27,7 @@ rcm_forms_by_event <- function (...) UseMethod('rcm_forms_by_event')
 #' @rdname rcm_forms_by_event
 #' @export
 rcm_forms_by_event.rcm_form_event_map <- function(df_form_event_map, chr_event) {
-  df_form_event_map[df_form_event_map[, 2] == chr_event, 3]
+  df_form_event_map[df_form_event_map[, 2] %in% chr_event, 3]
 }
 
 #' @rdname rcm_forms_by_event

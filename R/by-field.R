@@ -14,7 +14,7 @@ rcm_forms_by_field <- function (...) UseMethod('rcm_forms_by_field')
 #' @rdname rcm_forms_by_field
 #' @export
 rcm_forms_by_field.rcm_metadata <- function (df_metadata, chr_field) {
-  df_metadata[df_metadata[, 1] == chr_field, 2]
+  df_metadata[df_metadata[, 1] %in% chr_field, 2]
 }
 
 #' @rdname rcm_forms_by_field

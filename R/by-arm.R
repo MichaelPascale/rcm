@@ -11,7 +11,7 @@ rcm_events_by_arm <- function (...) UseMethod('rcm_events_by_arm')
 #' @rdname rcm_events_by_arm
 #' @export
 rcm_events_by_arm.rcm_form_event_map <- function (df_form_event_map, int_arm) {
-  df_form_event_map[df_form_event_map[, 1] == int_arm, 2] |> unique()
+  df_form_event_map[df_form_event_map[, 1] %in% int_arm, 2] |> unique()
 }
 
 #' @rdname rcm_events_by_arm
@@ -27,7 +27,7 @@ rcm_forms_by_arm <- function (...) UseMethod('rcm_forms_by_arm')
 #' @rdname rcm_forms_by_arm
 #' @export
 rcm_forms_by_arm.rcm_form_event_map <- function (df_form_event_map, int_arm) {
-  df_form_event_map[df_form_event_map[, 1] == int_arm, 3] |> unique()
+  df_form_event_map[df_form_event_map[, 1] %in% int_arm, 3] |> unique()
 }
 
 #' @rdname rcm_forms_by_arm
