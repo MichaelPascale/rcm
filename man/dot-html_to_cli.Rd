@@ -19,3 +19,4 @@ Strips tags and styles, replacing these with styling codes used by `cli`.
 As part of the `rcm` package, this function intends to handle only those
 HTML tags that are likely to appear in a REDCap field label.
 }
+\keyword{internal}

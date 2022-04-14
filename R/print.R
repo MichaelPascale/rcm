@@ -2,13 +2,13 @@
 # S3 Print Methods for rcm_* Objects
 #
 # Maintained by Michael Pascale <mppascale@mgh.harvard.edu>
-# Last modified: 2022-03-18
+# Last modified: 2022-04-14
 
 #' @export
 print.rcm_data <- function(df_data) {
   cli_h1('REDCap Data')
   cli_text('{nrow(df_data)} record{?s} in {ncol(df_data)} field{?s}, {attr(df_data, "rcm-reachable")} field{?s} with metadata.')
-  df_data |> head() |> as_tibble() |>  print(max_footer_lines=2)
+  df_data |> as_tibble() |>  print(max_footer_lines=2)
   invisible(df_data)
 }
 

@@ -15,3 +15,4 @@ The metadata data frame.
 \description{
 Safely extract metadata from an rcm_data object
 }
+\keyword{internal}

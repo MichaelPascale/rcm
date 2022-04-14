@@ -2,7 +2,7 @@
 # Utility Functions
 #
 # Maintained by Michael Pascale <mppascale@mgh.harvard.edu>
-# Last modified: 2022-03-25
+# Last modified: 2022-04-14
 
 #' Translate HTML for Display with the `cli` Package
 #'
@@ -14,6 +14,7 @@
 #' @param chr_html HTML code to be stripped.
 #'
 #' @return Character string for display with `cli::cli_text()`.
+#' @keywords internal
 .html_to_cli <- function (chr_html) {
   chr_html |>
     str_remove_all('<span(\\s.*)?>(.*?)</span>') |>
@@ -30,6 +31,7 @@
 #' @param df_data A dataframe created with `rcm`.
 #'
 #' @return The metadata data frame.
+#' @keywords internal
 .metadata <- function (df_data) {
   if (!is(df_data, 'rcm_data'))
     stop(substitute(df_data), ' is not of class rcm_data.')
@@ -48,6 +50,7 @@
 #' @param df_data A dataframe created with `rcm`.
 #'
 #' @return The form-event map data frame.
+#' @keywords internal
 .form_event_map <- function (df_data) {
   if (!is(df_data, 'rcm_data'))
     stop(substitute(df_data), ' is not of class rcm_data.')
@@ -59,4 +62,15 @@
     stop('Form-event map attribute of ', substitute(df_data), ' is not of class rcm_form_event_map')
 
   df_m
+}
+
+#' Drop classes matching a regular expression from an object.
+#'
+#' @param obj_any Any R object.
+#' @param chr_pattern A regular expression matching the classes to be dropped.
+#'
+#' @return The modified class list.
+#' @keywords internal
+.drop_class <- function (obj_any, chr_pattern) {
+  class(obj_any) |> discard(str_detect, chr_pattern)
 }
