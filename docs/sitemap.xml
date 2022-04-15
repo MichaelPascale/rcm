@@ -13,6 +13,9 @@
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/reference/dot-discrete.html</loc>
+  </url>
+  <url>
     <loc>/reference/dot-form_event_map.html</loc>
   </url>
   <url>
@@ -20,6 +23,15 @@
   </url>
   <url>
     <loc>/reference/dot-metadata.html</loc>
+  </url>
+  <url>
+    <loc>/reference/dot-strip_attributes.html</loc>
+  </url>
+  <url>
+    <loc>/reference/dot-strip_class.html</loc>
+  </url>
+  <url>
+    <loc>/reference/dot-update_attributes.html</loc>
   </url>
   <url>
     <loc>/reference/hello.html</loc>
@@ -38,6 +50,9 @@
   </url>
   <url>
     <loc>/reference/rcm_arms_by_form.html</loc>
+  </url>
+  <url>
+    <loc>/reference/rcm_autoconvert.html</loc>
   </url>
   <url>
     <loc>/reference/rcm_branching.html</loc>
@@ -67,6 +82,9 @@
     <loc>/reference/rcm_fields_by_form.html</loc>
   </url>
   <url>
+    <loc>/reference/rcm_finalize.html</loc>
+  </url>
+  <url>
     <loc>/reference/rcm_form.html</loc>
   </url>
   <url>
@@ -85,7 +103,19 @@
     <loc>/reference/rcm_label.html</loc>
   </url>
   <url>
+    <loc>/reference/rcm_list_events.html</loc>
+  </url>
+  <url>
+    <loc>/reference/rcm_list_fields.html</loc>
+  </url>
+  <url>
     <loc>/reference/rcm_list_forms.html</loc>
+  </url>
+  <url>
+    <loc>/reference/rcm_list_repeating.html</loc>
+  </url>
+  <url>
+    <loc>/reference/rcm_list_types.html</loc>
   </url>
   <url>
     <loc>/reference/rcm_max.html</loc>
@@ -101,6 +131,12 @@
   </url>
   <url>
     <loc>/reference/rcm_required.html</loc>
+  </url>
+  <url>
+    <loc>/reference/rcm_select_by_form.html</loc>
+  </url>
+  <url>
+    <loc>/reference/rcm_select_by_type.html</loc>
   </url>
   <url>
     <loc>/reference/rcm_to_integer.html</loc>
@@ -119,5 +155,8 @@
   </url>
   <url>
     <loc>/reference/rcm_validation.html</loc>
+  </url>
+  <url>
+    <loc>/reference/sub-.rcm_data.html</loc>
   </url>
 </urlset>
