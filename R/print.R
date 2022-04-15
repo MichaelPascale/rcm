@@ -2,12 +2,26 @@
 # S3 Print Methods for rcm_* Objects
 #
 # Maintained by Michael Pascale <mppascale@mgh.harvard.edu>
-# Last modified: 2022-04-14
-
+# Last modified: 2022-04-15
 #' @export
 print.rcm_data <- function(df_data) {
   cli_h1('REDCap Data')
-  cli_text('{nrow(df_data)} record{?s} in {ncol(df_data)} field{?s}, {attr(df_data, "rcm-reachable")} field{?s} with metadata.')
+
+  cli_par()
+  cli_text('{nrow(df_data)} record{?s} in {ncol(df_data)} field{?s}, {attr(df_data, "rcm-fields") |> length()} field{?s} with metadata and {attr(df_data, "rcm-non-fields") |> length()} without.')
+  cli_text('Present fields are of the following types: {attr(df_data, "rcm-field-types")}.')
+  cli_end()
+
+  cli_par()
+  cli_text('Longitudinal: {attr(df_data, "rcm-is-longitudinal")}')
+  if (attr(df_data, "rcm-is-longitudinal")) cli_text('Events: {rcm_list_events(df_data)}')
+  cli_end()
+
+  cli_par()
+  cli_text('Repeating Instruments: {attr(df_data, "rcm-has-repeating")}')
+  if (attr(df_data, "rcm-has-repeating")) cli_text('{rcm_list_repeating(df_data)}')
+  cli_end()
+
   df_data |> as_tibble() |>  print(max_footer_lines=2)
   invisible(df_data)
 }

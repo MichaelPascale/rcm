@@ -2,7 +2,7 @@
 # Definition of S3 Class for Combining REDCap Data and Metadata
 #
 # Maintained by Michael Pascale <mppascale@mgh.harvard.edu>
-# Last modified: 2022-03-18
+# Last modified: 2022-04-15
 
 # TODO: Create class constructor method for rcm_metadata.
 # TODO: Expand this class.
@@ -32,28 +32,36 @@ rcm_form_event_map <- function (df_form_event_map) {
 #' formEventMapping API method.
 #'
 #' @export
-rcm <- function (df_data, df_metadata, df_form_event_map=NULL) {
+rcm <- function (df_data, df_metadata, df_form_event_map=NULL, chr_record_id_field='record_id') {
 
   checkmate::assert_data_frame(df_data, col.names='unique')
   checkmate::assert_data_frame(df_metadata, ncols=18)
   checkmate::assert_data_frame(df_form_event_map, ncols=3, null.ok=TRUE)
 
-  checkmate::assert_names(names(df_data), must.include=c(
-    'record_id',
-    'redcap_event_name',
-    'redcap_repeat_instrument',
-    'redcap_repeat_instance'
-  ))
+  checkmate::assert_names(names(df_data), must.include=chr_record_id_field)
+
+  lgl_is_longitudinal <-
+    checkmate::test_names(names(df_data), must.include='redcap_event_name')
+
+  lgl_has_repeating <-
+    checkmate::test_names(names(df_data), must.include=c(
+      'redcap_repeat_instrument',
+      'redcap_repeat_instance'
+    ))
 
   if (!is.null(df_form_event_map)) {
-    checkmate::assert_names(names(df_form_event_map), must.include=c(
-      'arm_num',
-      'unique_event_name',
-      'form'
-    ))
+    if (lgl_is_longitudinal) {
+      checkmate::assert_names(names(df_form_event_map), must.include=c(
+        'arm_num',
+        'unique_event_name',
+        'form'
+      ))
+    } else {
+      stop('Form-event mappings specified but redcap_event_name not present.')
+    }
   }
 
-  int_reachable <- 0
+  vchr_reachable <- character()
   for (chr_name in names(df_data)) {
     chr_lookup <- chr_name
 
@@ -88,17 +96,31 @@ rcm <- function (df_data, df_metadata, df_form_event_map=NULL) {
     class(df_data[[chr_name]]) <- prepend(class(df_data[[chr_name]]), 'rcm_field')
     # FIXME: Ensure this yields something useful for all REDCap types...
     class(df_data[[chr_name]]) <- prepend(class(df_data[[chr_name]]), str_glue('rcm_field_{df_metadata[df_metadata[,1] == chr_lookup, 4]}'))
-    int_reachable = int_reachable + 1
+    vchr_reachable <- append(vchr_reachable, chr_name)
   }
+
+  df_metadata <- structure(df_metadata, class=prepend(class(df_metadata), 'rcm_metadata'))
 
   # TODO: Implement optional attributes including events, labels, etc.
   structure(
     df_data,
-    `rcm-metadata`=structure(df_metadata, class=prepend(class(df_metadata), 'rcm_metadata')),
+    `rcm-record-id-field`=chr_record_id_field,
+    `rcm-metadata`=df_metadata,
+    `rcm-is-longitudinal`=lgl_is_longitudinal,
+    `rcm-has-repeating`=lgl_has_repeating,
     `rcm-form-event-map`=rcm_form_event_map(df_form_event_map),
-    `rcm-instruments`=df_metadata[,2] |> unique() |> sort(),
-    `rcm-field-types`=df_metadata[,4] |> unique() |> sort(),
-    `rcm-reachable`=int_reachable,
+    `rcm-instruments`=rcm_list_forms(df_metadata),
+    `rcm-field-types`=rcm_list_types(df_metadata),
+    `rcm-fields`=vchr_reachable,
+    `rcm-non-fields`=names(df_data) |> discard(is.element, vchr_reachable),
     class=prepend(class(df_data), 'rcm_data')
   )
+}
+
+#' Extract method for rcm_data.
+#'
+#' @export
+`[.rcm_data` <- function (...) {
+  warning('It is not recommended to extract directly from rcm_data objects. Use the provided methods or downgrade to data.frame.')
+  NextMethod()
 }

@@ -4,7 +4,7 @@
 \alias{rcm_list_forms}
 \alias{rcm_list_forms.rcm_data}
 \alias{rcm_list_forms.rcm_metadata}
-\title{Extract the List of REDCap Instruments from the Data Dictionary}
+\title{Extract the List of REDCap Instruments}
 \usage{
 rcm_list_forms(...)
 
@@ -13,5 +13,5 @@ rcm_list_forms(...)
 \method{rcm_list_forms}{rcm_metadata}(df_metadata)
 }
 \description{
-Extract the List of REDCap Instruments from the Data Dictionary
+Extract the List of REDCap Instruments
 }

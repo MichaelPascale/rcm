@@ -5,7 +5,12 @@
 \alias{rcm}
 \title{REDCap Metadata Utilities}
 \usage{
-rcm(df_data, df_metadata, df_form_event_map = NULL)
+rcm(
+  df_data,
+  df_metadata,
+  df_form_event_map = NULL,
+  chr_record_id_field = "record_id"
+)
 }
 \arguments{
 \item{df_data}{Dataframe comprising the downloaded REDCap data. Download

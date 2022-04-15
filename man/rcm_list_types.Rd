@@ -4,7 +4,7 @@
 \alias{rcm_list_types}
 \alias{rcm_list_types.rcm_data}
 \alias{rcm_list_types.rcm_metadata}
-\title{Extract the List of Field Types from the Data Dictionary}
+\title{Extract the List of Field Types}
 \usage{
 rcm_list_types(...)
 
@@ -13,5 +13,5 @@ rcm_list_types(...)
 \method{rcm_list_types}{rcm_metadata}(df_metadata)
 }
 \description{
-Extract the List of Field Types from the Data Dictionary
+Extract the List of Field Types
 }

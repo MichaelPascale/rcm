@@ -2,7 +2,7 @@
 # Typecast REDCap Fields to Usable R Types
 #
 # Maintained by Michael Pascale <mppascale@mgh.harvard.edu>
-# Last modified: 2022-03-18
+# Last modified: 2022-04-15
 
 
 #' Safely typecast date/time/datetime fields.
@@ -13,7 +13,7 @@ rcm_to_time <-
 #' @rdname rcm_to_time
 #' @export
 rcm_to_time.rcm_data <-
-  function(df_data, chr_field) rcm_logical(df_data[[chr_field]])
+  function(df_data, chr_field) rcm_to_time(df_data[[chr_field]])
 
 #' @rdname rcm_to_time
 #' @export

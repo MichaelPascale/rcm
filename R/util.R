@@ -71,6 +71,25 @@
 #'
 #' @return The modified class list.
 #' @keywords internal
-.drop_class <- function (obj_any, chr_pattern) {
+.strip_class <- function (obj_any, chr_pattern) {
   class(obj_any) |> discard(str_detect, chr_pattern)
+}
+
+#' Drop attributes matching a regular expression from an object.
+#'
+#' @param obj_any Any R object.
+#' @param chr_pattern A regular expression matching the attributes to be dropped.
+#'
+#' @return The modified class list.
+#' @keywords internal
+.strip_attributes <- function (obj_any, chr_pattern) {
+  attributes(obj_any) |> discard(str_detect, chr_pattern)
+}
+
+#' Extract unique elements from a given column in alphabetical order.
+#'
+#' @keywords internal
+.discrete <- function (df_data, v_col) {
+  assert_scalar(v_col)
+  suppressWarnings(df_data[, v_col]) |> unique() |> sort()
 }
