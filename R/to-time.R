@@ -26,6 +26,17 @@ rcm_to_time.rcm_field_text <- function (chr_time, tz='America/New_York') {
 
   chr_validation <- chr_time |> rcm_validation()
 
+  if (chr_validation == c('time'))
+    return(hm(chr_time))
+
+  if (chr_validation == 'time_12hr') {
+    warning(str_glue('The REDCap field {rcm_field(chr_time)} claims 12-hour time format. Ensure AM/PM captured if needed.'))
+    return(hm(chr_time))
+  }
+
+  if (chr_validation == 'time_mm_ss')
+    return(ms(chr_time))
+
   fn_parse <- switch(
     chr_validation,
     date_dmy=ymd,
@@ -56,5 +67,5 @@ rcm_to_time.rcm_field_text <- function (chr_time, tz='America/New_York') {
     warning(str_glue('The REDCap field {rcm_field(chr_time)} might not specify UTC timezone.'))
   }
 
-  fn_parse(chr_time)
+  fn_parse(chr_time, tz=tz)
 }

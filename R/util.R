@@ -93,3 +93,21 @@
   assert_scalar(v_col)
   suppressWarnings(df_data[, v_col]) |> unique() |> sort()
 }
+
+#' Like switch() but match value against regular expressions
+#' @keywords internal
+.switch_regex <- function(chr_string, ...) {
+  li_pairs <- list(...)
+  for (int_pair_idx in seq_along(li_pairs)) {
+    chr_name <- names(li_pairs)[int_pair_idx]
+    exp_result <- li_pairs[[int_pair_idx]]
+
+    if (chr_name == '')
+      return(exp_result)
+
+    if (str_detect(chr_string, chr_name))
+      return(exp_result)
+  }
+
+  stop('End of option list reached with no default.')
+}
