@@ -29,7 +29,7 @@ rcm_to_time.rcm_field_text <- function (chr_time, tz='America/New_York') {
   if (chr_validation == c('time'))
     return(hm(chr_time))
 
-  if (chr_validation == 'time_12hr') {
+  if (chr_validation == 'time_12h') {
     warning(str_glue('The REDCap field {rcm_field(chr_time)} claims 12-hour time format. Ensure AM/PM captured if needed.'))
     return(hm(chr_time))
   }

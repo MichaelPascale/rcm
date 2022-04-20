@@ -35,6 +35,14 @@ rcm_to_numeric.rcm_field_slider <- function (v_field) {
   as.numeric(v_field)
 }
 
+#' @rdname rcm_to_numeric
+#' @export
+rcm_to_numeric.rcm_field_calc <- function (v_field) {
+  checkmate::assert(v_field |> rcm_type() == 'calc')
+  checkmate::assert_numeric(v_field)
+
+  as.numeric(v_field)
+}
 
 
 

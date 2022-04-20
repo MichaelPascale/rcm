@@ -29,7 +29,7 @@ rcm_autoconvert.rcm_field <- function(v_field) {
       truefalse=rcm_to_logical(v_field),
       yesno=rcm_to_logical(v_field),
       {
-        warning('Field type not available.')
+        warning(str_glue('Field type {rcm_type(v_field)} not available for {rcm_field(v_field)}.'))
         v_field |> .strip_class('^rcm_') |> .strip_attributes('^rcm-')
       }
     )

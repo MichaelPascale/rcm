@@ -30,3 +30,11 @@ rcm_to_logical.rcm_field_truefalse <- function (int_logical) {
   checkmate::assert_integer(int_logical, lower=0, upper=1)
   as.logical(int_logical)
 }
+
+#' @rdname rcm_to_logical
+#' @export
+rcm_to_logical.rcm_field_checkbox <- function (int_logical) {
+  checkmate::assert(int_logical |> rcm_type() == 'checkbox')
+  checkmate::assert_integer(int_logical, lower=0, upper=1)
+  as.logical(int_logical)
+}

@@ -31,6 +31,9 @@
     <loc>/reference/dot-strip_class.html</loc>
   </url>
   <url>
+    <loc>/reference/dot-switch_regex.html</loc>
+  </url>
+  <url>
     <loc>/reference/dot-update_attributes.html</loc>
   </url>
   <url>
@@ -139,6 +142,9 @@
     <loc>/reference/rcm_select_by_type.html</loc>
   </url>
   <url>
+    <loc>/reference/rcm_to_factor.html</loc>
+  </url>
+  <url>
     <loc>/reference/rcm_to_integer.html</loc>
   </url>
   <url>
@@ -146,6 +152,9 @@
   </url>
   <url>
     <loc>/reference/rcm_to_numeric.html</loc>
+  </url>
+  <url>
+    <loc>/reference/rcm_to_text.html</loc>
   </url>
   <url>
     <loc>/reference/rcm_to_time.html</loc>

@@ -4,6 +4,7 @@
 \alias{rcm_to_text}
 \alias{rcm_to_text.rcm_data}
 \alias{rcm_to_text.rcm_field_text}
+\alias{rcm_to_text.rcm_field_notes}
 \title{Safely typecast text fields.}
 \usage{
 rcm_to_text(...)
@@ -11,6 +12,8 @@ rcm_to_text(...)
 \method{rcm_to_text}{rcm_data}(df_data, chr_field)
 
 \method{rcm_to_text}{rcm_field_text}(v_field)
+
+\method{rcm_to_text}{rcm_field_notes}(v_field)
 }
 \description{
 Safely typecast text fields.

@@ -50,7 +50,6 @@ rcm_to_integer.rcm_field_radio <- function (v_field) {
 #' @rdname rcm_to_integer
 #' @export
 rcm_to_integer.rcm_field_slider <- function (v_field) {
-  .NotYetImplemented()
   checkmate::assert(v_field |> rcm_type() == 'slider')
   checkmate::assert_integerish(v_field)
   as.integer(v_field)

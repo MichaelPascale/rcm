@@ -5,6 +5,7 @@
 \alias{rcm_to_numeric.rcm_data}
 \alias{rcm_to_numeric.rcm_field_text}
 \alias{rcm_to_numeric.rcm_field_slider}
+\alias{rcm_to_numeric.rcm_field_calc}
 \title{Safely typecast REDCap fields to numeric}
 \usage{
 rcm_to_numeric(...)
@@ -14,6 +15,8 @@ rcm_to_numeric(...)
 \method{rcm_to_numeric}{rcm_field_text}(v_field)
 
 \method{rcm_to_numeric}{rcm_field_slider}(v_field)
+
+\method{rcm_to_numeric}{rcm_field_calc}(v_field)
 }
 \description{
 Safely typecast REDCap fields to numeric

@@ -5,6 +5,7 @@
 \alias{rcm_to_logical.rcm_data}
 \alias{rcm_to_logical.rcm_field_yesno}
 \alias{rcm_to_logical.rcm_field_truefalse}
+\alias{rcm_to_logical.rcm_field_checkbox}
 \title{Safely typecast numerically coded yes/no and true/false questions to logical.}
 \usage{
 rcm_to_logical(...)
@@ -14,6 +15,8 @@ rcm_to_logical(...)
 \method{rcm_to_logical}{rcm_field_yesno}(int_logical)
 
 \method{rcm_to_logical}{rcm_field_truefalse}(int_logical)
+
+\method{rcm_to_logical}{rcm_field_checkbox}(int_logical)
 }
 \description{
 Safely typecast numerically coded yes/no and true/false questions to logical.

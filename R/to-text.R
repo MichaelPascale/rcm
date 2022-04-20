@@ -21,3 +21,11 @@ rcm_to_text.rcm_field_text <- function (v_field) {
   checkmate::assert(v_field |> rcm_type() == 'text')
   as.character(v_field)
 }
+
+#' @rdname rcm_to_text
+#' @export
+rcm_to_text.rcm_field_notes <- function (v_field) {
+  checkmate::assert(v_field |> rcm_type() == 'notes')
+  as.character(v_field)
+}
+
