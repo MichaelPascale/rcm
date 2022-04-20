@@ -6,12 +6,13 @@
 # Last modified: 2022-04-18
 
 #' Safely typecast REDCap fields given types in data dictionary.
+#' @export
 rcm_autoconvert <- function(...) UseMethod('rcm_autoconvert')
 
 #' @rdname rcm_autoconvert
 #' @export
 rcm_autoconvert.rcm_data <- function(df_data) {
-  map_dfc(df_rc,rcm_autoconvert)
+  map_dfc(df_data,rcm_autoconvert)
 }
 
 #' @rdname rcm_autoconvert
