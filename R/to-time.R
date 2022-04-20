@@ -52,7 +52,7 @@ rcm_to_time.rcm_field_text <- function (chr_time, tz='America/New_York') {
   )
 
   chr_annotation <- chr_time |> rcm_annotation()
-  if (str_detect(chr_annotation, '@(NOW|TODAY)')) {
+  if (!is.na(chr_annotation) && str_detect(chr_annotation, '@(NOW|TODAY)')) {
 
     if (tz != 'UTC' && str_detect(chr_annotation, '@(NOW|TODAY)-UTC'))
       warning(str_glue('The REDCap field {rcm_field(chr_time)} uses UTC field annotation but local timezone specified.'))

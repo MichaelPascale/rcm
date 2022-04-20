@@ -11,8 +11,21 @@ rcm_autoconvert <- function(...) UseMethod('rcm_autoconvert')
 
 #' @rdname rcm_autoconvert
 #' @export
-rcm_autoconvert.rcm_data <- function(df_data) {
-  map_dfc(df_data,rcm_autoconvert)
+rcm_autoconvert.rcm_data <- function(df_data, li_special=NULL) {
+  imap_dfc(df_data, ~{
+    withCallingHandlers(
+      {
+        if (.y %in% names(li_special))
+          return(li_special[[.y]](.x))
+
+        rcm_autoconvert(.x)
+      },
+      warning=function(cnd) {
+        cli_warn('Processing of field {.emph {.y}} was interrupted in {.field {deparse(cnd$call)}}: {.strong {cnd$message}}')
+        invokeRestart('muffleWarning')
+      }
+    )
+  })
 }
 
 #' @rdname rcm_autoconvert

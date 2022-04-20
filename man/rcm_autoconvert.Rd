@@ -9,7 +9,7 @@
 \usage{
 rcm_autoconvert(...)
 
-\method{rcm_autoconvert}{rcm_data}(df_data)
+\method{rcm_autoconvert}{rcm_data}(df_data, li_special = NULL)
 
 \method{rcm_autoconvert}{rcm_field}(v_field)
 

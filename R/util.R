@@ -105,6 +105,9 @@
     if (chr_name == '')
       return(exp_result)
 
+    if (is.na(chr_string))
+      next
+
     if (str_detect(chr_string, chr_name))
       return(exp_result)
   }
