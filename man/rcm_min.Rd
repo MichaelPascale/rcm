@@ -4,6 +4,7 @@
 \alias{rcm_min}
 \alias{rcm_min.rcm_field}
 \alias{rcm_min.rcm_data}
+\alias{rcm_min.rcm_metadata}
 \title{Extract the REDCap Validation Minimum Value}
 \usage{
 rcm_min(...)
@@ -11,6 +12,8 @@ rcm_min(...)
 \method{rcm_min}{rcm_field}(v)
 
 \method{rcm_min}{rcm_data}(df_data, chr_field)
+
+\method{rcm_min}{rcm_metadata}(df_metadata, chr_field)
 }
 \description{
 Extract the REDCap Validation Minimum Value

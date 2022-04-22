@@ -2,7 +2,7 @@
 # Extract REDCap Metadata from Attributes of rcm_field Objects.
 #
 # Maintained by Michael Pascale <mppascale@mgh.harvard.edu>
-# Last modified: 2022-03-18
+# Last modified: 2022-04-22
 
 #### Extract REDCap Metadata ####
 
@@ -102,16 +102,11 @@ rcm_annotation.rcm_field <- function(v) attr(v, 'rcm-annotation')
 
 #' @rdname rcm_choices
 #' @export
-rcm_choices.rcm_field <- function(v, raw=FALSE) {
-  chr_choices <- attr(v, 'rcm-choices')
+rcm_choices.rcm_field <- function(v, lgl_raw=FALSE) {
+  if (lgl_raw)
+    return(attr(v, 'rcm-choices'))
 
-  if (raw)
-    return(chr_choices)
-
-  str_match_all(chr_choices, '(?<value>\\w+),\\s*(?<label>.*?)\\s*(\\||$)')[[1]] ->
-    mat_choices
-
-  setNames(as.list(mat_choices[,'value']), mat_choices[,'label'])
+  .extract_choices(attr(v, 'rcm-choices'))
 }
 
 #' @rdname rcm_min
@@ -163,3 +158,59 @@ rcm_max.rcm_data <- function(df_data, chr_field) attr(df_data[[chr_field]], 'rcm
 #' @rdname rcm_events
 #' @export
 rcm_events.rcm_data <- function(df_data, chr_field) attr(df_data[[chr_field]], 'rcm-events')
+
+##### rcm_metadata #####
+
+#' @rdname rcm_type
+#' @export
+rcm_type.rcm_metadata <- function(df_metadata, chr_field) df_metadata[df_metadata[[1]] == chr_field, 4]
+
+#' @rdname rcm_form
+#' @export
+rcm_form.rcm_metadata <- function(df_metadata, chr_field) df_metadata[df_metadata[[1]] == chr_field, 2]
+
+#' @rdname rcm_validation
+#' @export
+rcm_validation.rcm_metadata <- function(df_metadata, chr_field) df_metadata[df_metadata[[1]] == chr_field, 8]
+
+#' @rdname rcm_annotation
+#' @export
+rcm_annotation.rcm_metadata <- function(df_metadata, chr_field) df_metadata[df_metadata[[1]] == chr_field, 18]
+
+#' @rdname rcm_choices
+#' @export
+rcm_choices.rcm_metadata <- function(df_metadata, chr_field, raw=FALSE) {
+  chr_choices <- df_metadata[df_metadata[[1]] == chr_field, 6]
+
+  if (raw)
+    return(chr_choices)
+
+  .extract_choices(chr_choices)
+}
+
+#' @rdname rcm_min
+#' @export
+rcm_min.rcm_metadata <- function(df_metadata, chr_field) df_metadata[df_metadata[[1]] == chr_field, 9]
+
+#' @rdname rcm_max
+#' @export
+rcm_max.rcm_metadata <- function(df_metadata, chr_field) df_metadata[df_metadata[[1]] == chr_field, 10]
+
+
+#' Extract choice-code mappings from radio/dropdown fields.
+#'
+#' Expects comma separated codes and corresponding choices, with each pair
+#' separated by a pipe character.
+#'
+#' e.g. 1,A|2,B|3,C
+#'
+#' @param chr_choices The choices string from the REDCap data dictionary.
+#' @return A list of codes named by choice.
+#'
+#' @keywords internal
+.extract_choices <- function(chr_choices) {
+  str_match_all(chr_choices, '(?<value>\\w+),\\s*(?<label>.*?)\\s*(\\||$)')[[1]] ->
+    mat_choices
+
+  setNames(as.list(mat_choices[,'value']), mat_choices[,'label'])
+}

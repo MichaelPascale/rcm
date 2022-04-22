@@ -4,6 +4,7 @@
 \alias{rcm_validation}
 \alias{rcm_validation.rcm_field}
 \alias{rcm_validation.rcm_data}
+\alias{rcm_validation.rcm_metadata}
 \title{Extract the REDCap Text Validation}
 \usage{
 rcm_validation(...)
@@ -11,6 +12,8 @@ rcm_validation(...)
 \method{rcm_validation}{rcm_field}(v)
 
 \method{rcm_validation}{rcm_data}(df_data, chr_field)
+
+\method{rcm_validation}{rcm_metadata}(df_metadata, chr_field)
 }
 \description{
 Extract the REDCap Text Validation

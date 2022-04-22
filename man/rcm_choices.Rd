@@ -4,13 +4,16 @@
 \alias{rcm_choices}
 \alias{rcm_choices.rcm_field}
 \alias{rcm_choices.rcm_data}
+\alias{rcm_choices.rcm_metadata}
 \title{Extract the REDCap Choices or Calculations}
 \usage{
 rcm_choices(...)
 
-\method{rcm_choices}{rcm_field}(v, raw = FALSE)
+\method{rcm_choices}{rcm_field}(v, lgl_raw = FALSE)
 
 \method{rcm_choices}{rcm_data}(df_data, chr_field, ...)
+
+\method{rcm_choices}{rcm_metadata}(df_metadata, chr_field, raw = FALSE)
 }
 \description{
 Extract the REDCap Choices or Calculations

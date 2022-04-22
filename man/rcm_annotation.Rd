@@ -4,6 +4,7 @@
 \alias{rcm_annotation}
 \alias{rcm_annotation.rcm_field}
 \alias{rcm_annotation.rcm_data}
+\alias{rcm_annotation.rcm_metadata}
 \title{Extract the REDCap Field Annotation}
 \usage{
 rcm_annotation(...)
@@ -11,6 +12,8 @@ rcm_annotation(...)
 \method{rcm_annotation}{rcm_field}(v)
 
 \method{rcm_annotation}{rcm_data}(df_data, chr_field)
+
+\method{rcm_annotation}{rcm_metadata}(df_metadata, chr_field)
 }
 \description{
 Extract the REDCap Field Annotation

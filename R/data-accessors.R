@@ -2,9 +2,11 @@
 # Extract REDCap Metadata from Attributes of rcm_data Objects.
 #
 # Maintained by Michael Pascale <mppascale@mgh.harvard.edu>
-# Last modified: 2022-04-15
+# Last modified: 2022-04-22
 
 ##### S3 Method Definitions #####
+
+
 
 #' Extract the List of REDCap Instruments
 #' @export
@@ -18,6 +20,7 @@ rcm_list_forms.rcm_data <- function(df_data) attr(df_data, 'rcm-instruments')
 #' @rdname rcm_list_forms
 #' @export
 rcm_list_forms.rcm_metadata <- function(df_metadata) .discrete(df_metadata, 2)
+
 
 
 #' Extract the List of REDCap Events
@@ -42,6 +45,7 @@ rcm_list_events.rcm_data <- function(df_data) {
 rcm_list_events.rcm_form_event_map <- function(df_form_event_map) .discrete(df_form_event_map, 2)
 
 
+
 #' Extract the List of REDCap Fields
 #' @export
 rcm_list_fields <-
@@ -56,6 +60,7 @@ rcm_list_fields.rcm_data <- function(df_data) attr(df_data, 'rcm-fields')
 rcm_list_fields.rcm_metadata <- function(df_metadata) .discrete(df_metadata, 1)
 
 
+
 #' Extract the List of Field Types
 #' @export
 rcm_list_types <-
@@ -68,6 +73,7 @@ rcm_list_types.rcm_data <- function(df_data) attr(df_data, 'rcm-field-types')
 #' @rdname rcm_list_types
 #' @export
 rcm_list_types.rcm_metadata <- function(df_metadata) .discrete(df_metadata, 4)
+
 
 
 #' Extract the List of Repeating Forms

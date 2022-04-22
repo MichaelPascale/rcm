@@ -4,6 +4,7 @@
 \alias{rcm_type}
 \alias{rcm_type.rcm_field}
 \alias{rcm_type.rcm_data}
+\alias{rcm_type.rcm_metadata}
 \title{Extract the REDCap Field Type}
 \usage{
 rcm_type(...)
@@ -11,6 +12,8 @@ rcm_type(...)
 \method{rcm_type}{rcm_field}(v)
 
 \method{rcm_type}{rcm_data}(df_data, chr_field)
+
+\method{rcm_type}{rcm_metadata}(df_metadata, chr_field)
 }
 \description{
 Extract the REDCap Field Type

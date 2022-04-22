@@ -4,6 +4,7 @@
 \alias{rcm_form}
 \alias{rcm_form.rcm_field}
 \alias{rcm_form.rcm_data}
+\alias{rcm_form.rcm_metadata}
 \title{Extract the REDCap Instrument Name}
 \usage{
 rcm_form(...)
@@ -11,6 +12,8 @@ rcm_form(...)
 \method{rcm_form}{rcm_field}(v)
 
 \method{rcm_form}{rcm_data}(df_data, chr_field)
+
+\method{rcm_form}{rcm_metadata}(df_metadata, chr_field)
 }
 \description{
 Extract the REDCap Instrument Name

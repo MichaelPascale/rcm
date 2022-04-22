@@ -4,8 +4,12 @@
 ║                                                           ║
 ║                       Version 0.0.1                       ║
 ║            Copyright (c) 2022, Michael Pascale            ║
+║             MGH Center for Addiction Medicine             ║
+║                                                           ║
 ║                       MIT Licensed                        ║
 ╚═══════════════════════════════════════════════════════════╝
+
+See documentation at https://rcm.psyc.dev for function details.
 
 The purpose of this package is to provide an interface to REDCap datasets with
 integrated metadata from the data dictionary. The product is an S3 class which
@@ -34,3 +38,7 @@ Optionally, include information regarding the REDCap events for each form.
 > df_forms <- read.csv('data/form-event-mappings-example.csv')
 > df_redcap <- rcm(df_data, df_meta, df_forms)
 > df_redcap
+
+Printing the name of any variable in the dataset will display a detailed report
+including the field type, label, and validation options selected in REDCap.
+> df_redcap$some_scale_q8

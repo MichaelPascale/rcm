@@ -4,6 +4,7 @@
 \alias{rcm_max}
 \alias{rcm_max.rcm_field}
 \alias{rcm_max.rcm_data}
+\alias{rcm_max.rcm_metadata}
 \title{Extract the REDCap Validation Maximum Value}
 \usage{
 rcm_max(...)
@@ -11,6 +12,8 @@ rcm_max(...)
 \method{rcm_max}{rcm_field}(v)
 
 \method{rcm_max}{rcm_data}(df_data, chr_field)
+
+\method{rcm_max}{rcm_metadata}(df_metadata, chr_field)
 }
 \description{
 Extract the REDCap Validation Maximum Value

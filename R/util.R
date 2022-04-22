@@ -2,7 +2,7 @@
 # Utility Functions
 #
 # Maintained by Michael Pascale <mppascale@mgh.harvard.edu>
-# Last modified: 2022-04-14
+# Last modified: 2022-04-22
 
 #' Translate HTML for Display with the `cli` Package
 #'
@@ -95,6 +95,7 @@
 }
 
 #' Like switch() but match value against regular expressions
+#'
 #' @keywords internal
 .switch_regex <- function(chr_string, ...) {
   li_pairs <- list(...)
@@ -113,4 +114,31 @@
   }
 
   stop('End of option list reached with no default.')
+}
+
+#' Expand checkbox field name to logical column names present in exported data.
+#'
+#' @keywords internal
+.expand_checkbox_fields <- function (...) UseMethod('.expand_checkbox_fields')
+
+#' @rdname dot-expand_checkbox_fields
+.expand_checkbox_fields.rcm_metadata <- function (df_metadata, vchr_fields) {
+  map(vchr_fields, ~ {
+
+    if (rcm_type(df_metadata, .) == 'checkbox')
+      return(paste(., rcm_choices(df_metadata, .) |> str_to_lower() |> str_replace('-', '_'), sep='___'))
+
+    .
+  }) |> simplify()
+}
+
+#' @rdname dot-expand_checkbox_fields
+.expand_checkbox_fields.rcm_data <- function (df_data, vchr_fields) {
+  map(vchr_fields, ~ {
+
+    if (rcm_type(df_metadata, .) == 'checkbox')
+      return(paste(., rcm_choices(df_metadata, .) |> str_to_lower() |> str_replace('-', '_'), sep='___'))
+
+    .
+  }) |> simplify()
 }
