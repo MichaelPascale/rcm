@@ -146,8 +146,8 @@
 .expand_checkbox_fields.rcm_data <- function (df_data, vchr_fields) {
   map(vchr_fields, ~ {
 
-    if (rcm_type(df_metadata, .) == 'checkbox')
-      return(paste(., rcm_choices(df_metadata, .) |> str_to_lower() |> str_replace('-', '_'), sep='___'))
+    if (rcm_type(.metadata(df_data), .) == 'checkbox')
+      return(paste(., rcm_choices(.metadata(df_data), .) |> str_to_lower() |> str_replace('-', '_'), sep='___'))
 
     .
   }) |> simplify()
