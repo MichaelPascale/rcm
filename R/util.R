@@ -15,6 +15,7 @@
 #'
 #' @return Character string for display with `cli::cli_text()`.
 #' @keywords internal
+#' @export
 .html_to_cli <- function (chr_html) {
   chr_html |>
     str_remove_all('<span(\\s.*)?>(.*?)</span>') |>
@@ -32,6 +33,7 @@
 #'
 #' @return The metadata data frame.
 #' @keywords internal
+#' @export
 .metadata <- function (df_data) {
   if (!is(df_data, 'rcm_data'))
     stop(substitute(df_data), ' is not of class rcm_data.')
@@ -51,6 +53,7 @@
 #'
 #' @return The form-event map data frame.
 #' @keywords internal
+#' @export
 .form_event_map <- function (df_data) {
   if (!is(df_data, 'rcm_data'))
     stop(substitute(df_data), ' is not of class rcm_data.')
@@ -71,6 +74,7 @@
 #'
 #' @return The modified class list.
 #' @keywords internal
+#' @export
 .strip_class <- function (obj_any, chr_pattern) {
   class(obj_any) |> discard(str_detect, chr_pattern)
 }
@@ -82,6 +86,7 @@
 #'
 #' @return The modified class list.
 #' @keywords internal
+#' @export
 .strip_attributes <- function (obj_any, chr_pattern) {
   attributes(obj_any) |> discard(str_detect, chr_pattern)
 }
@@ -89,6 +94,7 @@
 #' Extract unique elements from a given column in alphabetical order.
 #'
 #' @keywords internal
+#' @export
 .discrete <- function (df_data, v_col) {
   assert_scalar(v_col)
   suppressWarnings(df_data[, v_col]) |> unique() |> sort()
@@ -97,6 +103,7 @@
 #' Like switch() but match value against regular expressions
 #'
 #' @keywords internal
+#' @export
 .switch_regex <- function(chr_string, ...) {
   li_pairs <- list(...)
   for (int_pair_idx in seq_along(li_pairs)) {
@@ -119,9 +126,11 @@
 #' Expand checkbox field name to logical column names present in exported data.
 #'
 #' @keywords internal
+#' @export
 .expand_checkbox_fields <- function (...) UseMethod('.expand_checkbox_fields')
 
 #' @rdname dot-expand_checkbox_fields
+#' @export
 .expand_checkbox_fields.rcm_metadata <- function (df_metadata, vchr_fields) {
   map(vchr_fields, ~ {
 
@@ -133,6 +142,7 @@
 }
 
 #' @rdname dot-expand_checkbox_fields
+#' @export
 .expand_checkbox_fields.rcm_data <- function (df_data, vchr_fields) {
   map(vchr_fields, ~ {
 

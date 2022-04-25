@@ -6,6 +6,7 @@
 \alias{rcm_to_logical.rcm_field_yesno}
 \alias{rcm_to_logical.rcm_field_truefalse}
 \alias{rcm_to_logical.rcm_field_checkbox}
+\alias{rcm_to_logical.rcm_field_radio}
 \title{Safely typecast numerically coded yes/no and true/false questions to logical.}
 \usage{
 rcm_to_logical(...)
@@ -17,7 +18,15 @@ rcm_to_logical(...)
 \method{rcm_to_logical}{rcm_field_truefalse}(int_logical)
 
 \method{rcm_to_logical}{rcm_field_checkbox}(int_logical)
+
+\method{rcm_to_logical}{rcm_field_radio}(rcm_radio, chr_label_true)
 }
 \description{
 Safely typecast numerically coded yes/no and true/false questions to logical.
+
+On rcm_field_truefalse and rcm_field_yesno, expect integer coding 0=FALSE and
+1=TRUE.
+
+On rcm_field_radio, extract logical from a radio field, assuming binary
+options and provided the label of the option corresponding to TRUE.
 }
