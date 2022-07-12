@@ -117,9 +117,8 @@ rcm <- function (df_data, df_metadata, df_form_event_map=NULL, chr_record_id_fie
   )
 }
 
-#' Extract method for rcm_data.
-#'
-#' @export
+
+# Extract method for rcm_data.
 `[.rcm_data` <- function (...) {
   warning('It is not recommended to extract directly from rcm_data objects. Use the provided methods or downgrade to data.frame.')
   NextMethod()
